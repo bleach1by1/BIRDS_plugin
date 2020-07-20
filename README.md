@@ -163,6 +163,41 @@ When pipeline goes to this module, BIRDS automatically pops up the annotation re
 
 As shown in the example image, the input image is displayed in red color, and the annotation information is shown as the green mesh.
 
+## 4.1 Operation of manual correction
+If a slight misalignment of the annotation result is found after visual inspection, manual correction is allowed by this step. <br>
+The below example picture guides the user on how to perform the correction:<br>
+
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/19.png"/><br>
+
+Set values in “girdX” and “girdY”. These parameters represent the degree of correction, the greater is the misalignment, the larger values should be set. The default value of “girdX” (“girdY”) is 30, and the number of iterations (“iter”) is 10 times. During operation, please use the arrow (through Fiji’s line drawing function) to drag the annotation line (green line) to the correct position. “delete”: delete the current arrow; “back” return to the last correction; “previous correction ”: implement a deformation using the parameters saved for the last-time correction; “save” save the current operation after all corrections have been made.
+
+# 5 Visualization and quantitative analysis
+This module links BIRDS to Imaris, and performs the following tasks:
+1.	Using the annotation file of image dataset to map the CCFv3 in Imaris;
+2.	Neuron tracing under the CCFv3 in Imaris (optional);
+3.	Cell counting under the CCFv3 in Imaris (optional).
+
+After going through the workflow 1 to 4，users could map the whole CCFv3 for visualization and quantitative analysis. The GUI of this module is shown in the below picture:<br>
+
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/20.png"/><br>
+
+Since the registration is performed at an isotropic low resolution, we first need to restore the resolution of annotation files to match it with the image data. Users first input the number of “X(pixel)”， “Y(pixel)”, and  “Z(pixel)” in the original-resolution image, and then click “up” to generate the annotation file at high resolution. When finished, the “finish!” window will pop up. Users can import the generated “annotation.tif” file located at cache path>>visual>> into Imaris (X64 9.0.0), and click the “connect” button to link the program with Imaris. In the GUI, after the status of “Imaris” changing from “False” to “True”, click “Generate” to start the generation of 3D brain segmentation (volume rendering of brain surface) containing hierarchical structure in Imaris. The segmentation generation progress is displayed at the bottom, and can be stopped anytime. Interplay with Imaris is shown in the below screenshot:<br>
+
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/21.png"/><br>
+
+# 6 Prediction of brain areas by neural network
+This module runs under a Python environment and implements the following tasks:
+1.	Use the trained neural network parameters to predict the segmentations for brain image data directly
+2.	Read the current position of the mouse brain and display the annotation result for visual inspection;
+3.	Output the prediction result of the image dataset, with different brain areas being color-encoded.
+
+The GUI of this module is shown in the below picture:<br>
+
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/22.png"/><br>
+
+The “log” allows users to load a trained neural network node. Under the test data folder (birdsDemo), a file with name “out.pd” can be used for test (for STP image, sagittal view prediction ). “Image”: load the file path of a dataset to be predicted, and the format should be a TIFF sequence in RGB. A trial image dataset with name “YH285.tif” is provided under the test data folder (birdsDemo) for users’ test. “Parame”: input an Excel file which specifies the name and color codes of the brain areas to be predicted. An Excel file with name “region_dl.xls” is provided under the test data folder (birdsDemo) for users’ test. Clicking “upload” button to select the Excel file. It should be noted that “region_dl.xls” corresponds to “out.pd”, and both of files are located at the birdsDemo folder. In general, owing to the limitations of hardware resources and prediction accuracy, the number of brain areas to be predicted at once should not be too large (20 regions in test data). Color coding is used for specifying the different segmented areas, when outputting and displaying the predicted results. Clicking “validation” to start the prediction of the brain area. After the network prediction being finished, a pop-up window displays the generated results with X, Y coordinates of the region of interest (ROI) shown in real time. The predicted segmentation data are saved in the “dl” folder under the cache path.
+
+
 
 
 
