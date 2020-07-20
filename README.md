@@ -55,11 +55,11 @@ https://github.com/bleach1by1/BIRDS_demo
 BIRDS program contains five modules, which are according to different functions of workflow.<br>
 Find the BIRDS in the Fiji plugins<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/1.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/1.png"/><br>
 
 Select main-plugin to run. The GUI is shown in the below picture, with five modules indicated in the red box<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/2.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/2.png"/><br>
 
 downsample -> image preprocessing <br>
 coarse -> registration<br>
@@ -72,31 +72,31 @@ The task of this module is to process the imported image to generate an isotropi
 ## 2.1 Introduction of GUI and operations
 The GUI of preprocessing module is shown in the below screenshot:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/3.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/3.png"/><br>
 
 The GUI contains three parts: 1: Click “choose” button to set the cache file path. BIRDS will download the necessary image files (Allen Reference Atlas, average template, annotation file) and generate 5 folders as: “cache”, “generate”, “registration”, “visual” and “dl” to store all intermediate data and final outputs. 2: Importing image datasets into Fiji. If the data is not in TIFF format, users should convert it to a TIFF sequence format. This can be easily done in Fiji as well. Then, click the “choose” button to select the image (the selected image name will be automatically displayed in the text box). Coronal view is the default view in our program (starting plane at the olfactory bulb). Users can convert their images to coronal view through the “Reslice” function in Fiji. The image resolution is set in the text box. In BIRDS, X and Y correspond to the horizontal and vertical axes of the coronal plane, respectively, and Z is the direction of the AP axis. We provided test data at https://github.com/bleach1by1/BIRDS_demo. After downloading the test data file to birdsDemo folder, the test dataset “YH298.tif” can be imported in Fiji for testing the software. 3: To accurately down-sample the imported experimental datasets, which might be obviously deformed by tissue clearing, users need to identify the corresponding feature planes on the experimental data and Allen template. 
 ## 2.2 Operation process and description of parameter
 Import the image on the Fiji platform, as shown below (first import the image and then click “choose” button to select):<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/4.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/4.png"/><br>
 
 The software automatically pops up “Allen Reference Atlas” as following:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/5.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/5.png"/><br>
 
 In the third part of the “downsample” module, users need to select 7 corresponding feature planes, and fill their serial numbers in the text boxes of “ourBrain” and “atlas”, respectively. While the first and last planes may vary by different brain datasets, the choice of five middle planes is usually fixed (atlas=43, 56, 62, 78, 105), owing to the obvious anatomical features exhibited in these five planes. As shown in the figure below, we have selected corresponding feature planes in the test dataset and Allen template. The rectangular boxes show the feature regions users should pay more attention to<br>
 
-<img width="800" src="https://github.com/bleach1by1/figure_github/blob/master/6.png"/><br>
+<img width="800" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/6.png"/><br>
 
 After selecting corresponding feature planes, click “down” button to start the downsampling. This operation is usually finished within a few minutes, depended on the data size. After the downsampling is completed, BIRDS will generate and pop up two sets of images as: “outimage” and “temOrgimage” for next registration step. The generated images are shown as below:<br>
 
 “outimage”:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/7.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/7.png"/><br>
 
 “temOrgimage”:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/8.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/8.png"/><br>
 
 After completing all the steps in image preprocessing, BIRDS pops up the “finish!” window. The isotropic low-resolution dataset generated by image preprocessing has been stored under the cache path, and all the downsampling information is stored in the “generate” folder of the cache path in form of a “dataset.xml” file.
 
@@ -109,7 +109,7 @@ The “registration” module implements the following tasks:
 
 ## 3.1 The GUI of “registration” module
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/9.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/9.png"/><br>
 
 The registration module contains three parts as:<br>
 1. Select feature maps for multi-channel registration. Three image datasets usable for registration are: “invert”, brain images with grayscale reversed along three axes; “PC”, brain images with the edge and texture features extracted by phase congruency; “raw”, the original brain images (red box 1). While “raw” is required for registration, the selection of “invert” or “PC” is optional (check/uncheck the check boxes). With selecting the “invert” dataset, users will enter the manual parameter setting step (red box 3), which is further described in 3.2. In addition, please enter a weighting factor for each group of image dataset in the textbox. The typical weighting factors for three channels could be 0.25: 1.25: 1.25 for STP data, and 1: 0.75: 2.25 for light-sheet data. <br>
@@ -123,27 +123,27 @@ After the abovementioned three steps finished, users can click the “OK” butt
 ## 3.2 Marking line and reverse grayscale operation
 After checking the “invert” checkbox in the “feature” part, the manual labeling operation is started. BIRDS will pop up the following image window for marking the axes:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/10.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/10.png"/><br>
 
 Please use the line drawing function on the Fiji to define the marker lines. The below picture shows the marker line (also center line) selected in a coronal plane. For accurately determining the yz plane, sufficiently many maker lines are recommended.<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/11.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/11.png"/><br>
 
 For defining the XY plane, users can mark two vertical lines, as exampled in the below pictures, on two selected coronal slices (here ~ 280th layer of average template features) after carefully checking the structure features “Bregma” of the mouse brain. If the brain shows very symmetrical coronal planes, users can also mark two lines on the same coronal slice.<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/12.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/12.png"/><br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/13.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/13.png"/><br>
 
 In a similar way, for defining the XZ plane, users can mark two horizontal lines on two coronal slices (e.g., at ~210th layer of average template, at which the corpus callosum is about to converge; and ~600th layer of average template, at which the inverted triangle appears). The examples are given in below pictures:<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/14.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/14.png"/><br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/15.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/15.png"/><br>
 
 After the three axial planes are successfully marked, users can click “invert” button to automatically generate the grayscale- reversed image based on the foreground of the raw image. The “invertImage” then pops up to give the preview of the generated result. It’ noted that users can use the Fiji “Orthogonal Views” to see if the axis is correctly defined. If it is not correct, users can go back to revise the marker lines and repeat the process.<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/16.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/16.png"/><br>
 
 # 4 Visual inspection and manual correction
 This module will implement the following tasks:
@@ -151,7 +151,7 @@ This module will implement the following tasks:
 2.	Real-time manual correction through interactive operation.
 The GUI of this module is shown in the below picture:<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/17.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/17.png"/><br>
 
 The module contains two parts: <br>
 1: Correction, which is sub-divided into “parameter” and “deformation” functions. <br>
@@ -159,7 +159,7 @@ The module contains two parts: <br>
 
 When pipeline goes to this module, BIRDS automatically pops up the annotation result generated from the finished registration, which might be not accurate enough.<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/18.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/18.png"/><br>
 
 As shown in the example image, the input image is displayed in red color, and the annotation information is shown as the green mesh.
 
