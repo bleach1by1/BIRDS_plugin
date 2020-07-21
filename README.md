@@ -159,7 +159,7 @@ The module contains two parts: <br>
 
 When pipeline goes to this module, BIRDS automatically pops up the annotation result generated from the finished registration, which might be not accurate enough.<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/18.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/28.png"/><br>
 
 As shown in the example image, the input image is displayed in red color, and the annotation information is shown as the green mesh.
 
