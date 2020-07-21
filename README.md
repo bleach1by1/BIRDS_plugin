@@ -151,7 +151,7 @@ This module will implement the following tasks:
 2.	Real-time manual correction through interactive operation.
 The GUI of this module is shown in the below picture:<br>
 
-<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/17.png"/><br>
+<img width="300" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/29.png"/><br>
 
 The module contains two parts: <br>
 1: Correction, which is sub-divided into “parameter” and “deformation” functions. <br>
@@ -167,7 +167,7 @@ As shown in the example image, the input image is displayed in red color, and th
 If a slight misalignment of the annotation result is found after visual inspection, manual correctionhttps://github.com/bleach1by1/figure_github/blob/master/figure_github/18%20-%20%E5%89%AF%E6%9C%AC.pn is allowed by this step. <br>
 The below example picture guides the user on how to perform the correction:<br>
 
-<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/19.png"/><br>
+<img width="400" src="https://github.com/bleach1by1/figure_github/blob/master/figure_github/30.png"/><br>
 
 Set values in “girdX” and “girdY”. These parameters represent the degree of correction, the greater is the misalignment, the larger values should be set. The default value of “girdX” (“girdY”) is 30, and the number of iterations (“iter”) is 10 times. During operation, please use the arrow (through Fiji’s line drawing function) to drag the annotation line (green line) to the correct position. “delete”: delete the current arrow; “back” return to the last correction; “previous correction ”: implement a deformation using the parameters saved for the last-time correction; “save” save the current operation after all corrections have been made.
 
