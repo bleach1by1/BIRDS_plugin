@@ -13,7 +13,7 @@ All Rights Reserved.
 # Before installing BIRDS
 ## Reference
 If you use BIRDS in your work please cite our preprint paper:
-Bi-channel Image Registration and Deep-learning Segmentation (BIRDS) for efficient, versatile mapping of mouse brain. https://www.biorxiv.org/content/10.1101/2020.06.30.181255v1 <br>
+Bi-channel Image Registration and Deep-learning Segmentation (BIRDS) for efficient, versatile mapping of mouse brain. https://doi.org/10.7554/eLife.63455 <br>
 Some of our functions are built on the following tools:<br>
 * Allen CCFv3 
 * Fiji
